@@ -165,7 +165,7 @@ header {
           &.sub-menu {
             display: none;
             position: absolute;
-            box-shadow: 0 6px 12px rgba(0,0,0,.175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
             min-width: 100%;
             li {
               background: #fff !important;
@@ -219,6 +219,12 @@ main {
           font-size: .8em;
           text-decoration: none;
           display: inline-block;
+          &.separator {
+            margin: 0 5px;
+            color: #2e2e2f;
+            opacity: .2;
+            user-select: none;
+          }
           &a:hover {
             color: #fd0031;
           }
@@ -280,7 +286,7 @@ main {
       }
       .project {
         width: 32%;
-          padding-bottom: 52px;
+        padding-bottom: 52px;
         a {
           color: #000;
           text-decoration: none;
@@ -329,7 +335,7 @@ main {
             .project-popup {
               opacity: 0.8;
               span {
-transform: translateY(0);
+                transform: translateY(0);
               }
             }
           }
