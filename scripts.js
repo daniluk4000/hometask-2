@@ -15,4 +15,26 @@ $(document).ready(function () {
             $('.project').show('slow');
         }
     });
+    $(window).scroll(function(){
+        var main = $('main').offset().top;
+        var header = $('header#fixed');
+        if($(this).scrollTop()>main){
+            if(!header.hasClass('animated')) {
+                header.addClass('animated').animate({'top': 0}, 500, 'linear');
+            }
+        } else {
+            if(header.hasClass('animated')) {
+                header.removeClass('animated').animate({'top': -200}, 500, 'linear');
+            }
+        }
+    });
+    $('.menu-search').click(function() {
+       $('.search-popup').removeClass('disabled').find('.popup-background').removeClass('disabled').parent().find('.popup-itself').animate({'margin-top': 0}, 200, 'linear');
+    });
+    $('.search-popup .close, .search-popup .popup-background').click(function() {
+        $('.search-popup .popup-background').addClass('disabled').parent().find('.popup-itself').animate({'margin-top': -132}, 200, 'linear');
+        setTimeout(function() {
+            $('.search-popup').addClass('disabled');
+        }, 200)
+    });
 });
