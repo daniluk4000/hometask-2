@@ -1,3 +1,11 @@
+function isMobile() {
+    if(window.screen.width < 1280) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 $(document).ready(function () {
     $('.print').click(function () {
         window.print();
@@ -36,5 +44,12 @@ $(document).ready(function () {
         setTimeout(function() {
             $('.search-popup').addClass('disabled');
         }, 200)
+    });
+    $('#phone').mask('+7 (999) 999-99-99');
+    $('.header-callme').click(function() {
+       $('.callme-popup').css('display', 'flex').hide().fadeIn('slow');
+    });
+    $('.callme-popup .popup-background, .callme-popup .close').click(function() {
+        $('.callme-popup').fadeOut('slow');
     });
 });
