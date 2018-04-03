@@ -64,6 +64,9 @@ header {
           justify-content: flex-start;
         }
         > * {
+          &.burger {
+            display: none;
+          }
           @include mobile() {
             &:not(a) {
               display: none;
@@ -77,6 +80,7 @@ header {
               padding: 0;
               background: url(includes/Burger_mask.svg) #222;
               cursor: pointer;
+              display: block;
               &.enabled {
                 background: url(includes/Close.svg) transparent no-repeat center;
               }
@@ -724,6 +728,10 @@ footer {
         height: 48px;
         border-radius: 3px;
         background: url(includes/social2.png) 0 0/548px 148px no-repeat;
+        transition: 0.3s;
+        &:hover {
+          opacity: 0.8;
+        }
         &:nth-child(2) {
           background-position: -50px 0;
         }
@@ -941,6 +949,13 @@ footer {
     opacity: 1;
     transform: rotate(0deg);
   }
+  10% {
+    transform: rotate(0deg);
+  }
+  90% {
+    opacity: 0;
+    transform: rotate(180deg);
+  }
   100% {
     opacity: 0;
     transform: rotate(180deg);
@@ -979,5 +994,8 @@ footer {
       opacity: 0;
       visibility: hidden;
     }
+  }
+  &:hover {
+    background-color: #ff0838;
   }
 }

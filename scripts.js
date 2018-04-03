@@ -27,6 +27,7 @@ $(document).ready(function () {
         $(window).scroll(function () {
             var main = $('main').offset().top;
             var header = $('header#fixed');
+            var footer = $('footer').offset().top;
             var scroll = $('#scroll');
             if ($(this).scrollTop() > main) {
                 if (scroll.hasClass('disabled'))
@@ -34,12 +35,18 @@ $(document).ready(function () {
                 if (!header.hasClass('animated')) {
                     header.addClass('animated').animate({'top': 0}, 500, 'linear');
                 }
+                if($(this).scrollTop() + + $(this).height()> footer) {
+                    var bottom = $(this).scrollTop() + $(this).height() - footer + 20;
+                    scroll.css('bottom', bottom);
+                } else {
+                    scroll.removeAttr('style');
+                }
             } else {
                 if (scroll.hasClass('enabled')) {
-                    scroll.removeClass('enabled').addClass('disabled');
                     setTimeout(function () {
                         scroll.addClass('gone')
-                    }, 500, scroll);
+                    }, 450, scroll);
+                    scroll.removeClass('enabled').addClass('disabled');
                 }
                 if (header.hasClass('animated')) {
                     header.removeClass('animated').animate({'top': -200}, 500, 'linear');
